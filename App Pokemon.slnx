@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="DominioPokemon/DominioPokemon.csproj" />
+  <Project Path="InterfazPokemon/InterfazPokemon.csproj" />
+  <Project Path="NegocioPokemon/NegocioPokemon.csproj" />
+</Solution>

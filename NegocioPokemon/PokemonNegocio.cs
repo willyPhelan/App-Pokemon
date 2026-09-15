@@ -4,10 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient ;
-using DominioPokemon ; 
+using DominioPokemon ;
+using System.Security.AccessControl;
 
 namespace NegocioPokemon {
     public class PokemonNegocio {
+
+        public void agregar(Pokemon po){
+
+        AccesoDatos datos = new AccesoDatos() ;      
+        
+        try { 
+        
+        datos.setearConsulta("Insert into Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) values (" + po.Numero + ", '" + po.Nombre + "', '" + po.Descripcion + "', '', 1, 1, 1)");
+        
+        datos.ejecutarAccion() ; 
+        
+        
+        } catch (Exception ex) { throw ex ; }  finally {    datos.cerrarConexion() ; } 
+         
+        }
+        public void modificar(){} 
 
         public List <Pokemon> listar(){
 

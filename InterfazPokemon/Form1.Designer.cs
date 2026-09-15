@@ -31,6 +31,7 @@ namespace InterfazPokemon
         {
             this.dgvPokemon = new System.Windows.Forms.DataGridView();
             this.pictureBoxPokemon = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +55,22 @@ namespace InterfazPokemon
             this.pictureBoxPokemon.TabStop = false;
             this.pictureBoxPokemon.Click += new System.EventHandler(this.pictureBoxPokemon_Click);
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(12, 358);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 2;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.pictureBoxPokemon);
             this.Controls.Add(this.dgvPokemon);
             this.Name = "Form1";
@@ -74,6 +86,7 @@ namespace InterfazPokemon
 
         private System.Windows.Forms.DataGridView dgvPokemon;
         private System.Windows.Forms.PictureBox pictureBoxPokemon;
+        private Button btnAgregar;
     }
 }
 

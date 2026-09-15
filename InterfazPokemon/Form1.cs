@@ -69,10 +69,14 @@ namespace InterfazPokemon {
         
         
         }
-        
-        
-        
-        } 
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAltaPokemon alta = new frmAltaPokemon() ;
+
+            alta.ShowDialog() ;
+        }
+    } 
         
         
         

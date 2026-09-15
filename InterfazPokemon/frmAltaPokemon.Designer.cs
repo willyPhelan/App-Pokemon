@@ -39,6 +39,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.comboBoxTipo = new System.Windows.Forms.ComboBox();
+            this.comboBoxDebilidad = new System.Windows.Forms.ComboBox();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.lblDebilidad = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -60,36 +64,36 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(88, 132);
+            this.linkLabel3.Location = new System.Drawing.Point(88, 114);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(0, 13);
             this.linkLabel3.TabIndex = 2;
             // 
             // textDescripcion
             // 
-            this.textDescripcion.Location = new System.Drawing.Point(169, 125);
+            this.textDescripcion.Location = new System.Drawing.Point(112, 87);
             this.textDescripcion.Name = "textDescripcion";
-            this.textDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.textDescripcion.Size = new System.Drawing.Size(145, 20);
             this.textDescripcion.TabIndex = 3;
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(169, 75);
+            this.textNombre.Location = new System.Drawing.Point(112, 61);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(100, 20);
+            this.textNombre.Size = new System.Drawing.Size(145, 20);
             this.textNombre.TabIndex = 4;
             // 
             // textNumero
             // 
-            this.textNumero.Location = new System.Drawing.Point(169, 32);
+            this.textNumero.Location = new System.Drawing.Point(112, 36);
             this.textNumero.Name = "textNumero";
-            this.textNumero.Size = new System.Drawing.Size(100, 20);
+            this.textNumero.Size = new System.Drawing.Size(145, 20);
             this.textNumero.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(118, 39);
+            this.label1.Location = new System.Drawing.Point(62, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 6;
@@ -98,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 125);
+            this.label2.Location = new System.Drawing.Point(43, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
@@ -107,7 +111,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(118, 82);
+            this.label3.Location = new System.Drawing.Point(61, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 8;
@@ -125,7 +129,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(240, 186);
+            this.btnCancelar.Location = new System.Drawing.Point(182, 186);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -133,11 +137,51 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // comboBoxTipo
+            // 
+            this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Location = new System.Drawing.Point(112, 114);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxTipo.TabIndex = 11;
+            // 
+            // comboBoxDebilidad
+            // 
+            this.comboBoxDebilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDebilidad.FormattingEnabled = true;
+            this.comboBoxDebilidad.Location = new System.Drawing.Point(112, 141);
+            this.comboBoxDebilidad.Name = "comboBoxDebilidad";
+            this.comboBoxDebilidad.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxDebilidad.TabIndex = 12;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Location = new System.Drawing.Point(72, 117);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(28, 13);
+            this.lblTipo.TabIndex = 13;
+            this.lblTipo.Text = "Tipo";
+            // 
+            // lblDebilidad
+            // 
+            this.lblDebilidad.AutoSize = true;
+            this.lblDebilidad.Location = new System.Drawing.Point(50, 144);
+            this.lblDebilidad.Name = "lblDebilidad";
+            this.lblDebilidad.Size = new System.Drawing.Size(51, 13);
+            this.lblDebilidad.TabIndex = 14;
+            this.lblDebilidad.Text = "Debilidad";
+            // 
             // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 244);
+            this.Controls.Add(this.lblDebilidad);
+            this.Controls.Add(this.lblTipo);
+            this.Controls.Add(this.comboBoxDebilidad);
+            this.Controls.Add(this.comboBoxTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label3);
@@ -152,6 +196,7 @@
             this.Name = "frmAltaPokemon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Pokemon";
+            this.Load += new System.EventHandler(this.frmAltaPokemon_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +215,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ComboBox comboBoxTipo;
+        private System.Windows.Forms.ComboBox comboBoxDebilidad;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label lblDebilidad;
     }
 }

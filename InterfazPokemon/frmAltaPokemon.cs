@@ -40,6 +40,10 @@ namespace InterfazPokemon
 
             pokemon1.Descripcion = textDescripcion.Text ;
 
+            pokemon1.Tipo = (Elemento)comboBoxTipo.SelectedItem ; 
+
+            pokemon1.Debilidad = (Elemento)comboBoxDebilidad.SelectedItem ; 
+
             /// con el obj cargado lo mando a la BD
             /// 
             negocio.agregar(pokemon1) ;
@@ -54,6 +58,25 @@ namespace InterfazPokemon
 
         }
 
-     
-    }
-}
+        private void frmAltaPokemon_Load(object sender, EventArgs e) {
+
+        ElementoNegocio elementoNegocio = new ElementoNegocio() ; 
+
+        try {
+
+        // asocio a la lista los desplegables
+        
+        comboBoxTipo.DataSource = elementoNegocio.listar() ;  
+        
+        comboBoxDebilidad.DataSource = elementoNegocio.listar() ; 
+
+        } catch (Exception ex){ MessageBox.Show(ex.ToString())  ; }
+
+        }
+        
+        }
+        
+        }
+
+        
+    

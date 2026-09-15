@@ -1,5 +1,5 @@
 <Solution>
-  <Project Path="DominioPokemon/DominioPokemon.csproj" />
-  <Project Path="InterfazPokemon/InterfazPokemon.csproj" />
-  <Project Path="NegocioPokemon/NegocioPokemon.csproj" />
+  <Project Path="DominioPokemon/DominioPokemon.csproj" Id="44015cdb-8531-4105-9bb1-5ec67b6d7093" />
+  <Project Path="InterfazPokemon/InterfazPokemon.csproj" Id="d44822a5-2a54-46ed-9898-ffeb66bd6555" />
+  <Project Path="NegocioPokemon/NegocioPokemon.csproj" Id="00ae9933-2055-4625-8cf3-a378c0b1c8ab" />
 </Solution>

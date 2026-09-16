@@ -52,7 +52,7 @@ namespace NegocioPokemon {
     
         conexion.Open() ;
 
-        comando.BeginExecuteNonQuery() ; 
+        comando.ExecuteNonQuery() ; 
     
     
     } catch(Exception ex){
@@ -62,6 +62,10 @@ namespace NegocioPokemon {
        }  
         
         } 
+
+    public void setearParametro(string nombre, object valor){ // recibo por parametro la variable @IdTipo, @idDebilidad
+    
+    comando.Parameters.AddWithValue(nombre, valor) ; }  // y seteo el valor
 
     public void cerrarConexion(){
     

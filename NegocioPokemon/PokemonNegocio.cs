@@ -10,20 +10,27 @@ using System.Security.AccessControl;
 namespace NegocioPokemon {
     public class PokemonNegocio {
 
-        public void agregar(Pokemon po){
+      public void agregar(Pokemon po) {
+    AccesoDatos datos = new AccesoDatos();
+    try { 
+        // Corregimos la cantidad de columnas, el orden y los parámetros
+        datos.setearConsulta("INSERT INTO Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) VALUES (" + po.Numero + ", @Nombre, @Descripcion, @ImagenUrl, @IdTipo, @IdDebilidad, 1)");
+      
+        datos.setearParametro("@Nombre", po.Nombre);
+        datos.setearParametro("@Descripcion", po.Descripcion);
+        datos.setearParametro("@ImagenUrl", po.ImagenUrl);
+        datos.setearParametro("@IdTipo", po.Tipo.Id);
+        datos.setearParametro("@IdDebilidad", po.Debilidad.Id);
 
-        AccesoDatos datos = new AccesoDatos() ;      
-        
-        try { 
-        
-        datos.setearConsulta("Insert into Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) values (" + po.Numero + ", '" + po.Nombre + "', '" + po.Descripcion + "', '', 1, 1, 1)");
-        
-        datos.ejecutarAccion() ; 
-        
-        
-        } catch (Exception ex) { throw ex ; }  finally {    datos.cerrarConexion() ; } 
-         
-        }
+        datos.ejecutarAccion(); 
+    } 
+    catch (Exception ex) { 
+        throw ex; 
+    } 
+    finally { 
+        datos.cerrarConexion(); 
+    } 
+}
         public void modificar(){} 
 
         public List <Pokemon> listar(){

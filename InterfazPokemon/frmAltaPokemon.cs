@@ -44,6 +44,8 @@ namespace InterfazPokemon
 
             pokemon1.Debilidad = (Elemento)comboBoxDebilidad.SelectedItem ; 
 
+            pokemon1.ImagenUrl = textImagenUrl.Text ;
+
             /// con el obj cargado lo mando a la BD
             /// 
             negocio.agregar(pokemon1) ;
@@ -73,8 +75,12 @@ namespace InterfazPokemon
         } catch (Exception ex){ MessageBox.Show(ex.ToString())  ; }
 
         }
-        
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
+    }
         
         }
 

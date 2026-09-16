@@ -43,6 +43,8 @@
             this.comboBoxDebilidad = new System.Windows.Forms.ComboBox();
             this.lblTipo = new System.Windows.Forms.Label();
             this.lblDebilidad = new System.Windows.Forms.Label();
+            this.textImagenUrl = new System.Windows.Forms.TextBox();
+            this.ImagenUrl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -64,7 +66,7 @@
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(88, 114);
+            this.linkLabel3.Location = new System.Drawing.Point(88, 140);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(0, 13);
             this.linkLabel3.TabIndex = 2;
@@ -119,7 +121,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(101, 186);
+            this.btnAgregar.Location = new System.Drawing.Point(101, 201);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 9;
@@ -129,7 +131,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(182, 186);
+            this.btnCancelar.Location = new System.Drawing.Point(182, 201);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 10;
@@ -141,7 +143,7 @@
             // 
             this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(112, 114);
+            this.comboBoxTipo.Location = new System.Drawing.Point(112, 140);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(145, 21);
             this.comboBoxTipo.TabIndex = 11;
@@ -150,7 +152,7 @@
             // 
             this.comboBoxDebilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDebilidad.FormattingEnabled = true;
-            this.comboBoxDebilidad.Location = new System.Drawing.Point(112, 141);
+            this.comboBoxDebilidad.Location = new System.Drawing.Point(112, 167);
             this.comboBoxDebilidad.Name = "comboBoxDebilidad";
             this.comboBoxDebilidad.Size = new System.Drawing.Size(145, 21);
             this.comboBoxDebilidad.TabIndex = 12;
@@ -158,7 +160,7 @@
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(72, 117);
+            this.lblTipo.Location = new System.Drawing.Point(72, 143);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(28, 13);
             this.lblTipo.TabIndex = 13;
@@ -167,17 +169,37 @@
             // lblDebilidad
             // 
             this.lblDebilidad.AutoSize = true;
-            this.lblDebilidad.Location = new System.Drawing.Point(50, 144);
+            this.lblDebilidad.Location = new System.Drawing.Point(50, 170);
             this.lblDebilidad.Name = "lblDebilidad";
             this.lblDebilidad.Size = new System.Drawing.Size(51, 13);
             this.lblDebilidad.TabIndex = 14;
             this.lblDebilidad.Text = "Debilidad";
+            // 
+            // textImagenUrl
+            // 
+            this.textImagenUrl.Location = new System.Drawing.Point(112, 113);
+            this.textImagenUrl.Name = "textImagenUrl";
+            this.textImagenUrl.Size = new System.Drawing.Size(145, 20);
+            this.textImagenUrl.TabIndex = 15;
+            // 
+            // ImagenUrl
+            // 
+            this.ImagenUrl.AutoSize = true;
+            this.ImagenUrl.Location = new System.Drawing.Point(43, 116);
+            this.ImagenUrl.Name = "ImagenUrl";
+            this.ImagenUrl.Size = new System.Drawing.Size(56, 17);
+            this.ImagenUrl.TabIndex = 16;
+            this.ImagenUrl.Text = "ImagenUrl";
+            this.ImagenUrl.UseCompatibleTextRendering = true;
+            this.ImagenUrl.Click += new System.EventHandler(this.label4_Click);
             // 
             // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 244);
+            this.Controls.Add(this.ImagenUrl);
+            this.Controls.Add(this.textImagenUrl);
             this.Controls.Add(this.lblDebilidad);
             this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.comboBoxDebilidad);
@@ -219,5 +241,7 @@
         private System.Windows.Forms.ComboBox comboBoxDebilidad;
         private System.Windows.Forms.Label lblTipo;
         private System.Windows.Forms.Label lblDebilidad;
+        private System.Windows.Forms.TextBox textImagenUrl;
+        private System.Windows.Forms.Label ImagenUrl;
     }
 }

@@ -68,7 +68,11 @@ namespace NegocioPokemon {
 
                  aux.Descripcion = (string)lector["Descripcion"] ; 
 
-                 aux.ImagenUrl = (string)lector ["ImagenUrl"] ;
+                 if(!(lector.IsDBNull(lector.GetOrdinal("ImagenUrl")))){ // si no es null la columna en la bd...
+
+               //  if(!(lector["ImagenUrl"] is DBNull)) aux.ImagenUrl = (string)lector["ImagenUrl"] ; OTRA FORMA DE HACERLO
+
+                 aux.ImagenUrl = (string)lector ["ImagenUrl"] ; }
 
                  aux.Tipo = new Elemento() ; 
 

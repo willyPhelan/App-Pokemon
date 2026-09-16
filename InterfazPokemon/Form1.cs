@@ -24,6 +24,8 @@ namespace InterfazPokemon {
 
             PokemonNegocio negocio = new PokemonNegocio() ;
 
+            try {
+
             listaPokemon = negocio.listar() ; // guardo metodo en una variable (atributo)
 
             dgvPokemon.DataSource = listaPokemon ; 
@@ -32,7 +34,9 @@ namespace InterfazPokemon {
          
             pictureBoxPokemon.Load(listaPokemon[0].ImagenUrl) ; 
 
-            dgvPokemon.Columns["ImagenUrl"].Visible = false;
+            dgvPokemon.Columns["ImagenUrl"].Visible = false; }
+
+            catch (Exception ex){ MessageBox.Show(ex.ToString()) ; } ;
 
 
         

@@ -12,11 +12,21 @@ using NegocioPokemon ;
 
 namespace InterfazPokemon
 {
-    public partial class frmAltaPokemon : Form
-    {
+    public partial class frmAltaPokemon : Form {
+
+    private Pokemon pokemon = null ;
+
+    
         public frmAltaPokemon()
         {
             InitializeComponent();
+        }
+
+          public frmAltaPokemon(Pokemon pokemon) {
+
+            InitializeComponent() ;
+
+            this.pokemon = pokemon ; 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -71,8 +81,34 @@ namespace InterfazPokemon
         // asocio a la lista los desplegables
         
         comboBoxTipo.DataSource = elementoNegocio.listar() ;  
+
+        comboBoxTipo.ValueMember = "Id" ;
+
+        comboBoxTipo.DisplayMember = "Descripcion" ;
         
         comboBoxDebilidad.DataSource = elementoNegocio.listar() ; 
+
+        comboBoxDebilidad.ValueMember = "Id" ;
+
+        comboBoxDebilidad.DisplayMember = "Descripcion" ;
+
+        if(pokemon != null ){
+
+        textNumero.Text = pokemon.Numero.ToString() ;
+
+        textNombre.Text = pokemon.Nombre ; 
+
+        textDescripcion.Text = pokemon.Descripcion ;
+
+        textImagenUrl.Text = pokemon.ImagenUrl ; 
+
+        cargarImagen(pokemon.ImagenUrl) ;
+
+        comboBoxTipo.SelectedValue = pokemon.Tipo.Id ;
+
+        comboBoxDebilidad.SelectedValue = pokemon.Debilidad.Id ; 
+
+        }
 
         } catch (Exception ex){ MessageBox.Show(ex.ToString())  ; }
 
@@ -104,6 +140,8 @@ namespace InterfazPokemon
         
         
         }
+
+        
     }
         
         }

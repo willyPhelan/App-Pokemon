@@ -81,6 +81,23 @@ namespace InterfazPokemon {
 
 
         }
+
+
+
+        private void buttonModificar_Click_1(object sender, EventArgs e)
+        {
+
+         Pokemon seleccionado ; 
+
+                seleccionado = (Pokemon)dgvPokemon.CurrentRow.DataBoundItem ; 
+
+                frmAltaPokemon modificar = new frmAltaPokemon(seleccionado) ; 
+
+                modificar.ShowDialog();
+
+                cargar() ;
+
+        }
     } 
         
         

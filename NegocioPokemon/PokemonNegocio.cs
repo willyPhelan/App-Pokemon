@@ -49,7 +49,7 @@ namespace NegocioPokemon {
 
                 comando.CommandType = System.Data.CommandType.Text ; 
 
-                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo ;" ;
+                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo ;" ;
 
                 comando.Connection = conexion ;
 
@@ -75,6 +75,8 @@ namespace NegocioPokemon {
                  aux.ImagenUrl = (string)lector ["ImagenUrl"] ; }
 
                  aux.Tipo = new Elemento() ; 
+
+                 aux.Tipo.Id = (int)lector["IdTipo"] ;
 
                  aux.Tipo.Descripcion = (string)lector["Elemento"]  ;
 

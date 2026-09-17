@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,9 +8,13 @@ using System.Threading.Tasks;
 namespace DominioPokemon {
     public class Pokemon {
 
+    
+    [DisplayName("Número")]
     public int Numero { get ; set ; }
 
     public string Nombre { get ; set ; } 
+
+    [DisplayName("Descripción")]  // annotations
 
     public string Descripcion { get ; set ; }
 

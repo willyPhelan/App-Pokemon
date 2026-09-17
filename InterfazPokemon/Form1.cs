@@ -20,9 +20,11 @@ namespace InterfazPokemon {
             InitializeComponent() ;
         }
 
-        private void Form1_Load(object sender, EventArgs e)  {
+        private void Form1_Load(object sender, EventArgs e)  { cargar() ; } 
 
-            PokemonNegocio negocio = new PokemonNegocio() ;
+        private void cargar(){
+
+         PokemonNegocio negocio = new PokemonNegocio() ;
 
             try {
 
@@ -38,11 +40,6 @@ namespace InterfazPokemon {
 
             catch (Exception ex){ MessageBox.Show(ex.ToString()) ; } ;
 
-
-        
-            
-
-            
 
         }
 
@@ -79,6 +76,10 @@ namespace InterfazPokemon {
             frmAltaPokemon alta = new frmAltaPokemon() ;
 
             alta.ShowDialog() ;
+
+            cargar() ; // cargo pokemon nuevo a la lista
+
+
         }
     } 
         

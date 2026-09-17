@@ -45,12 +45,14 @@
             this.lblDebilidad = new System.Windows.Forms.Label();
             this.textImagenUrl = new System.Windows.Forms.TextBox();
             this.ImagenUrl = new System.Windows.Forms.Label();
+            this.pictureBoxPokemon = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(88, 39);
+            this.linkLabel1.Location = new System.Drawing.Point(66, 39);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(0, 13);
             this.linkLabel1.TabIndex = 0;
@@ -58,44 +60,44 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(88, 82);
+            this.linkLabel2.Location = new System.Drawing.Point(66, 82);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(0, 13);
-            this.linkLabel2.TabIndex = 1;
+            this.linkLabel2.TabIndex = 15;
             // 
             // linkLabel3
             // 
             this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Location = new System.Drawing.Point(88, 140);
+            this.linkLabel3.Location = new System.Drawing.Point(66, 140);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(0, 13);
             this.linkLabel3.TabIndex = 2;
             // 
             // textDescripcion
             // 
-            this.textDescripcion.Location = new System.Drawing.Point(112, 87);
+            this.textDescripcion.Location = new System.Drawing.Point(90, 87);
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.Size = new System.Drawing.Size(145, 20);
-            this.textDescripcion.TabIndex = 3;
+            this.textDescripcion.TabIndex = 2;
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(112, 61);
+            this.textNombre.Location = new System.Drawing.Point(90, 61);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(145, 20);
-            this.textNombre.TabIndex = 4;
+            this.textNombre.TabIndex = 1;
             // 
             // textNumero
             // 
-            this.textNumero.Location = new System.Drawing.Point(112, 36);
+            this.textNumero.Location = new System.Drawing.Point(90, 36);
             this.textNumero.Name = "textNumero";
             this.textNumero.Size = new System.Drawing.Size(145, 20);
-            this.textNumero.TabIndex = 5;
+            this.textNumero.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(62, 39);
+            this.label1.Location = new System.Drawing.Point(40, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 6;
@@ -104,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 87);
+            this.label2.Location = new System.Drawing.Point(21, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
@@ -113,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 63);
+            this.label3.Location = new System.Drawing.Point(39, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 8;
@@ -121,20 +123,20 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(101, 201);
+            this.btnAgregar.Location = new System.Drawing.Point(79, 201);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 9;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(182, 201);
+            this.btnCancelar.Location = new System.Drawing.Point(160, 201);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 10;
+            this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -143,24 +145,24 @@
             // 
             this.comboBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(112, 140);
+            this.comboBoxTipo.Location = new System.Drawing.Point(90, 140);
             this.comboBoxTipo.Name = "comboBoxTipo";
             this.comboBoxTipo.Size = new System.Drawing.Size(145, 21);
-            this.comboBoxTipo.TabIndex = 11;
+            this.comboBoxTipo.TabIndex = 4;
             // 
             // comboBoxDebilidad
             // 
             this.comboBoxDebilidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDebilidad.FormattingEnabled = true;
-            this.comboBoxDebilidad.Location = new System.Drawing.Point(112, 167);
+            this.comboBoxDebilidad.Location = new System.Drawing.Point(90, 167);
             this.comboBoxDebilidad.Name = "comboBoxDebilidad";
             this.comboBoxDebilidad.Size = new System.Drawing.Size(145, 21);
-            this.comboBoxDebilidad.TabIndex = 12;
+            this.comboBoxDebilidad.TabIndex = 5;
             // 
             // lblTipo
             // 
             this.lblTipo.AutoSize = true;
-            this.lblTipo.Location = new System.Drawing.Point(72, 143);
+            this.lblTipo.Location = new System.Drawing.Point(50, 143);
             this.lblTipo.Name = "lblTipo";
             this.lblTipo.Size = new System.Drawing.Size(28, 13);
             this.lblTipo.TabIndex = 13;
@@ -169,7 +171,7 @@
             // lblDebilidad
             // 
             this.lblDebilidad.AutoSize = true;
-            this.lblDebilidad.Location = new System.Drawing.Point(50, 170);
+            this.lblDebilidad.Location = new System.Drawing.Point(28, 170);
             this.lblDebilidad.Name = "lblDebilidad";
             this.lblDebilidad.Size = new System.Drawing.Size(51, 13);
             this.lblDebilidad.TabIndex = 14;
@@ -177,27 +179,38 @@
             // 
             // textImagenUrl
             // 
-            this.textImagenUrl.Location = new System.Drawing.Point(112, 113);
+            this.textImagenUrl.Location = new System.Drawing.Point(90, 113);
             this.textImagenUrl.Name = "textImagenUrl";
             this.textImagenUrl.Size = new System.Drawing.Size(145, 20);
-            this.textImagenUrl.TabIndex = 15;
+            this.textImagenUrl.TabIndex = 3;
+            this.textImagenUrl.Leave += new System.EventHandler(this.textImagenUrl_Leave);
             // 
             // ImagenUrl
             // 
             this.ImagenUrl.AutoSize = true;
-            this.ImagenUrl.Location = new System.Drawing.Point(43, 116);
+            this.ImagenUrl.Location = new System.Drawing.Point(9, 116);
             this.ImagenUrl.Name = "ImagenUrl";
-            this.ImagenUrl.Size = new System.Drawing.Size(56, 17);
+            this.ImagenUrl.Size = new System.Drawing.Size(75, 17);
             this.ImagenUrl.TabIndex = 16;
-            this.ImagenUrl.Text = "ImagenUrl";
+            this.ImagenUrl.Text = "Url de Imagen";
             this.ImagenUrl.UseCompatibleTextRendering = true;
             this.ImagenUrl.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // pictureBoxPokemon
+            // 
+            this.pictureBoxPokemon.Location = new System.Drawing.Point(241, 36);
+            this.pictureBoxPokemon.Name = "pictureBoxPokemon";
+            this.pictureBoxPokemon.Size = new System.Drawing.Size(149, 134);
+            this.pictureBoxPokemon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPokemon.TabIndex = 17;
+            this.pictureBoxPokemon.TabStop = false;
             // 
             // frmAltaPokemon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 244);
+            this.ClientSize = new System.Drawing.Size(464, 289);
+            this.Controls.Add(this.pictureBoxPokemon);
             this.Controls.Add(this.ImagenUrl);
             this.Controls.Add(this.textImagenUrl);
             this.Controls.Add(this.lblDebilidad);
@@ -219,6 +232,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo Pokemon";
             this.Load += new System.EventHandler(this.frmAltaPokemon_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +257,6 @@
         private System.Windows.Forms.Label lblDebilidad;
         private System.Windows.Forms.TextBox textImagenUrl;
         private System.Windows.Forms.Label ImagenUrl;
+        private System.Windows.Forms.PictureBox pictureBoxPokemon;
     }
 }

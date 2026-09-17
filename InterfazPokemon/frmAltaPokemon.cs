@@ -40,6 +40,8 @@ namespace InterfazPokemon
 
             pokemon1.Descripcion = textDescripcion.Text ;
 
+            pokemon1.ImagenUrl = textImagenUrl.Text ; 
+
             pokemon1.Tipo = (Elemento)comboBoxTipo.SelectedItem ; 
 
             pokemon1.Debilidad = (Elemento)comboBoxDebilidad.SelectedItem ; 
@@ -79,6 +81,28 @@ namespace InterfazPokemon
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textImagenUrl_Leave(object sender, EventArgs e)
+        {
+
+        cargarImagen(textImagenUrl.Text) ;
+
+        }
+
+
+
+          private void cargarImagen(string imagen){
+
+        try {
+        
+            pictureBoxPokemon.Load(imagen) ; } catch {
+            
+            pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=") ;
+            
+            }
+        
+        
         }
     }
         

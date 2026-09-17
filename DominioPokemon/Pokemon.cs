@@ -18,6 +18,7 @@ namespace DominioPokemon {
 
     public string Descripcion { get ; set ; }
 
+   
    public string ImagenUrl { get ; set; } // La propiedad para obtener el la imagen
 
     public Elemento Tipo { get ; set ; }

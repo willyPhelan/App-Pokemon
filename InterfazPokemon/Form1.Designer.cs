@@ -34,6 +34,9 @@ namespace InterfazPokemon
             this.btnAgregar = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.labelBusqueda = new System.Windows.Forms.Label();
+            this.textBoxFiltro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -90,11 +93,41 @@ namespace InterfazPokemon
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // labelBusqueda
+            // 
+            this.labelBusqueda.AutoSize = true;
+            this.labelBusqueda.Location = new System.Drawing.Point(9, 41);
+            this.labelBusqueda.Name = "labelBusqueda";
+            this.labelBusqueda.Size = new System.Drawing.Size(58, 13);
+            this.labelBusqueda.TabIndex = 5;
+            this.labelBusqueda.Text = "Busqueda:";
+            this.labelBusqueda.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // textBoxFiltro
+            // 
+            this.textBoxFiltro.Location = new System.Drawing.Point(70, 38);
+            this.textBoxFiltro.Name = "textBoxFiltro";
+            this.textBoxFiltro.Size = new System.Drawing.Size(170, 20);
+            this.textBoxFiltro.TabIndex = 6;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(246, 35);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 407);
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.textBoxFiltro);
+            this.Controls.Add(this.labelBusqueda);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.btnAgregar);
@@ -106,6 +139,7 @@ namespace InterfazPokemon
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -116,6 +150,9 @@ namespace InterfazPokemon
         private Button btnAgregar;
         private Button buttonModificar;
         private Button btnEliminar;
+        private Label labelBusqueda;
+        private TextBox textBoxFiltro;
+        private Button btnBuscar;
     }
 }
 

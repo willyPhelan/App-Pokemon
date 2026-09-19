@@ -34,9 +34,7 @@ namespace InterfazPokemon {
 
             dgvPokemon.DataSource = listaPokemon ; 
          
-            cargarImagen(listaPokemon[0].ImagenUrl);
-
-            
+            cargarImagen(listaPokemon[0].ImagenUrl);          
             
             ocultarColumnas() ;
 
@@ -73,14 +71,19 @@ namespace InterfazPokemon {
         
         
 private void cargarImagen(string imagen) {
+
     try {
         // Validamos primero de forma estricta si es nulo, vacío o espacios en blanco
         if (string.IsNullOrWhiteSpace(imagen)) {
+
             pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=");
-        } else {
-            pictureBoxPokemon.Load(imagen);
+        
+            } else {
+
+            pictureBoxPokemon.Load(imagen) ;
         }
     } 
+
     catch {
         // Si la URL falla (ej. no tiene internet o la ruta de la web está rota), carga la de respaldo
         pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=");
@@ -165,7 +168,7 @@ private void cargarImagen(string imagen) {
 
         if(filtro != ""){
 
-         listaFiltrada = listaPokemon.FindAll(x => x.Nombre == filtro) ; 
+         listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()) ); // valido permitiendo mayusc y minusc
         
          } else {
 

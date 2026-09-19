@@ -7,6 +7,7 @@ using System.Data.SqlClient ;
 using DominioPokemon ;
 using System.Security.AccessControl;
 using System.Security.Authentication.ExtendedProtection;
+using System.Security.Cryptography.X509Certificates;
 
 namespace NegocioPokemon {
     public class PokemonNegocio {
@@ -15,8 +16,8 @@ namespace NegocioPokemon {
     AccesoDatos datos = new AccesoDatos();
     try { 
         // Corregimos la cantidad de columnas, el orden y los parámetros
-        datos.setearConsulta("INSERT INTO Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) VALUES (" + po.Numero + ", @Nombre, @Descripcion, @ImagenUrl, @IdTipo, @IdDebilidad, 1)");
-      
+        datos.setearConsulta("INSERT INTO Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) VALUES (" + po.Numero + ", @Nombre, @Descripcion, @ImagenUrl, @IdTipo, @IdDebilidad)");
+     
         datos.setearParametro("@Nombre", po.Nombre);
         datos.setearParametro("@Descripcion", po.Descripcion);
         datos.setearParametro("@ImagenUrl", po.ImagenUrl);
@@ -49,8 +50,36 @@ namespace NegocioPokemon {
                 
             
             
-            } catch (Exception e) { throw e ; } ;
-            }
+            } catch (Exception e) { throw e ; } } 
+
+
+
+            public void eliminarLogico(int id){
+            
+            try {
+            
+            AccesoDatos datos = new AccesoDatos() ;
+
+            datos.setearConsulta("update Pokemons set Activo = 0 Where Id = @id ; ") ;
+            
+            datos.setearParametro("@id", id) ;
+
+            datos.ejecutarAccion() ;
+            
+            } catch (Exception ex){ throw ex ;  }
+            
+           
+            } 
+
+
+
+
+
+
+
+
+
+            
 
 
 
@@ -113,7 +142,7 @@ namespace NegocioPokemon {
 
                 comando.CommandType = System.Data.CommandType.Text ; 
 
-                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad, p.Id FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo ;" ;
+                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad, p.Id FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo and p.Activo = 1 ;" ;
 
                 comando.Connection = conexion ;
 

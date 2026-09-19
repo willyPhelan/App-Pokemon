@@ -120,38 +120,12 @@ private void cargarImagen(string imagen) {
 
         private void btnEliminar_Click(object sender, EventArgs e){
 
-        PokemonNegocio negocio = new PokemonNegocio() ;
+        eliminar() ;
 
-        Pokemon seleccionado =  new Pokemon() ;
-            
-        // eliminado fisico
+        }
 
-        try {
 
-      
         
-        DialogResult respuesta =  MessageBox.Show("De verdad queres eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) ;
-
-        if(respuesta == DialogResult.Yes){
-
-        seleccionado = (Pokemon)dgvPokemon.CurrentRow.DataBoundItem ;
-
-        negocio.eliminar(seleccionado.Id) ;
-
-        cargar() ;
-
-        }
-
-
-        } catch(Exception ex) {
-
-        MessageBox.Show(ex.ToString()) ;
-        }
-
-
-
-
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -183,8 +157,52 @@ private void cargarImagen(string imagen) {
         ocultarColumnas() ;
 
         }
-    } 
+
+        private void btnEliminadoLogico_Click(object sender, EventArgs e)
+
+        {
+
+        eliminar(true) ;
+
+        }
+
+       private void eliminar(bool logico = false) { // toma falso por defecto // fn reutilizable de eliminacion Logica y fisica
+    
+       PokemonNegocio negocio = new PokemonNegocio();
+       Pokemon seleccionado;
+              
+            try {
+            DialogResult respuesta = MessageBox.Show("¿De verdad querés eliminarlo?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (respuesta == DialogResult.Yes) {
+                seleccionado = (Pokemon)dgvPokemon.CurrentRow.DataBoundItem;
+
+                if (logico) {
+                    negocio.eliminarLogico(seleccionado.Id);
+                    MessageBox.Show("Eliminado lógico exitosamente.");
+                } 
+                else {
+                    // Eliminación física (cuidado con las restricciones de clave foránea)
+                    negocio.eliminar(seleccionado.Id);
+                    MessageBox.Show("Eliminado físico exitosamente.");
+                }
+
+                cargar();
+            }
+        } 
+        catch(Exception ex) {
+            MessageBox.Show(ex.ToString());
+        }
+    }
+
+
+
         
         
         
-}
+            }  
+        } 
+        
+        
+        
+    

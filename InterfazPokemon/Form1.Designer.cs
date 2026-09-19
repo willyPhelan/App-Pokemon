@@ -37,6 +37,7 @@ namespace InterfazPokemon
             this.labelBusqueda = new System.Windows.Forms.Label();
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnEliminadoLogico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -87,9 +88,9 @@ namespace InterfazPokemon
             // 
             this.btnEliminar.Location = new System.Drawing.Point(174, 358);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(104, 23);
             this.btnEliminar.TabIndex = 4;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.Text = "Eliminado Fisico";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -120,11 +121,22 @@ namespace InterfazPokemon
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
+            // btnEliminadoLogico
+            // 
+            this.btnEliminadoLogico.Location = new System.Drawing.Point(284, 358);
+            this.btnEliminadoLogico.Name = "btnEliminadoLogico";
+            this.btnEliminadoLogico.Size = new System.Drawing.Size(104, 23);
+            this.btnEliminadoLogico.TabIndex = 8;
+            this.btnEliminadoLogico.Text = "Eliminado Logico";
+            this.btnEliminadoLogico.UseVisualStyleBackColor = true;
+            this.btnEliminadoLogico.Click += new System.EventHandler(this.btnEliminadoLogico_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 407);
+            this.Controls.Add(this.btnEliminadoLogico);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBoxFiltro);
             this.Controls.Add(this.labelBusqueda);
@@ -153,6 +165,7 @@ namespace InterfazPokemon
         private Label labelBusqueda;
         private TextBox textBoxFiltro;
         private Button btnBuscar;
+        private Button btnEliminadoLogico;
     }
 }
 

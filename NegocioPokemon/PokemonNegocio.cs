@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient ;
 using DominioPokemon ;
 using System.Security.AccessControl;
+using System.Security.Authentication.ExtendedProtection;
 
 namespace NegocioPokemon {
     public class PokemonNegocio {
@@ -31,7 +32,33 @@ namespace NegocioPokemon {
         datos.cerrarConexion(); 
     } 
 }
-        public void modificar(){} 
+        public void modificar(Pokemon poke){
+        
+            AccesoDatos datos = new AccesoDatos() ; // conexion 
+            
+            try {
+            
+            datos.setearConsulta("Update Pokemons set Numero = @numero, Nombre = @nombre , Descripcion = @descripcion , ImagenUrl = @img , IdTipo = @IdTipo, IdDebilidad = @idDebilidad Where Id = @id  ;") ; 
+            
+            datos.setearParametro("@numero", poke.Numero) ;
+            datos.setearParametro("@nombre", poke.Nombre) ;
+            datos.setearParametro("@descripcion", poke.Descripcion) ;
+            datos.setearParametro("@img", poke.ImagenUrl) ;
+            datos.setearParametro("@idTipo", poke.Tipo.Id) ;
+            datos.setearParametro("@idDebilidad", poke.Debilidad.Id) ;
+            datos.setearParametro("@id", poke.Id) ;
+
+            datos.ejecutarAccion() ;
+         
+
+
+
+
+            } catch (Exception ex) { throw ex ; } 
+        
+            finally { datos.cerrarConexion() ;}
+        
+        } 
 
         public List <Pokemon> listar(){
 
@@ -49,7 +76,7 @@ namespace NegocioPokemon {
 
                 comando.CommandType = System.Data.CommandType.Text ; 
 
-                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo ;" ;
+                comando.CommandText = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad, p.Id FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo ;" ;
 
                 comando.Connection = conexion ;
 
@@ -62,17 +89,29 @@ namespace NegocioPokemon {
 
                  Pokemon aux = new Pokemon() ;
 
+                 aux.Id = (int)lector["Id"] ;
+
                  aux.Numero = lector.GetInt32(0) ;
                  
                  aux.Nombre = (string)lector["Nombre"] ; 
 
                  aux.Descripcion = (string)lector["Descripcion"] ; 
 
-                 if(!(lector.IsDBNull(lector.GetOrdinal("ImagenUrl")))){ // si no es null la columna en la bd...
+                 if (!(lector.IsDBNull(lector.GetOrdinal("ImagenUrl")))) { 
+ 
+                 aux.ImagenUrl = (string)lector["ImagenUrl"] ; 
+
+                } else {  aux.ImagenUrl = "" ; // 👈 Si en la base de datos es NULL, le asignamos un string vacío para que no rompa
+                
+                }
+
+                /* if(!(lector.IsDBNull(lector.GetOrdinal("ImagenUrl")))){ // si no es null la columna en la bd...
 
                //  if(!(lector["ImagenUrl"] is DBNull)) aux.ImagenUrl = (string)lector["ImagenUrl"] ; OTRA FORMA DE HACERLO
 
-                 aux.ImagenUrl = (string)lector ["ImagenUrl"] ; }
+
+                
+                 aux.ImagenUrl = (string)lector ["ImagenUrl"] ; }*/
 
                  aux.Tipo = new Elemento() ; 
 
@@ -83,6 +122,8 @@ namespace NegocioPokemon {
                  aux.Debilidad = new Elemento() ; 
 
                  aux.Debilidad.Descripcion = (string)lector["Debilidad"] ;
+
+                 aux.Debilidad.Id = (int)lector["IdDebilidad"] ;
 
                  
                  lista.Add(aux) ;

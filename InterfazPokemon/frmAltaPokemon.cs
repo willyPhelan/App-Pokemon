@@ -27,6 +27,8 @@ namespace InterfazPokemon
             InitializeComponent() ;
 
             this.pokemon = pokemon ; 
+
+            Text = "Modificar Pokemon" ;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace InterfazPokemon
 
         private void btnAgregar_Click(object sender, EventArgs e){
 
-            Pokemon pokemon1 = new Pokemon() ;
+          //  Pokemon pokemon1 = new Pokemon() ;
 
             PokemonNegocio negocio = new PokemonNegocio() ; // instancio obj de conexion
 
@@ -44,31 +46,43 @@ namespace InterfazPokemon
             
             // capturo los datos y los transforomo en objeto de tipo Pokemon
 
-            pokemon1.Numero = int.Parse(textNumero.Text) ;
+            if (pokemon == null) pokemon = new Pokemon() ; 
 
-            pokemon1.Nombre = textNombre.Text ;
+            pokemon.Numero = int.Parse(textNumero.Text) ;
 
-            pokemon1.Descripcion = textDescripcion.Text ;
+            pokemon.Nombre = textNombre.Text ;
 
-            pokemon1.ImagenUrl = textImagenUrl.Text ; 
+            pokemon.Descripcion = textDescripcion.Text ;
 
-            pokemon1.Tipo = (Elemento)comboBoxTipo.SelectedItem ; 
+            pokemon.ImagenUrl = textImagenUrl.Text ; 
 
-            pokemon1.Debilidad = (Elemento)comboBoxDebilidad.SelectedItem ; 
+            pokemon.Tipo = (Elemento)comboBoxTipo.SelectedItem ; 
 
-            pokemon1.ImagenUrl = textImagenUrl.Text ;
+            pokemon.Debilidad = (Elemento)comboBoxDebilidad.SelectedItem ; 
+
+            pokemon.ImagenUrl = textImagenUrl.Text ;
 
             /// con el obj cargado lo mando a la BD
             /// 
-            negocio.agregar(pokemon1) ;
+            // si tiene id existe el pokemon 
 
-            MessageBox.Show("Agregaro Exitosamente") ; 
+            if(pokemon.Id != 0 ){
 
-            Close() ;
+            negocio.modificar(pokemon) ;
+
+            MessageBox.Show("Modificado Exitosamente") ; 
+
+            } else {
+
+            negocio.agregar(pokemon) ;
+      
+            MessageBox.Show("Modificado con exito") ; }
+
+            Close()  ; }
             
-            } catch (Exception ex) { 
+             catch (Exception ex) { 
             
-            MessageBox.Show(ex.ToString() ) ; }
+             MessageBox.Show(ex.ToString() ) ; }
 
         }
 

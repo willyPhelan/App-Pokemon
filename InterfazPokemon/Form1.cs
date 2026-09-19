@@ -20,7 +20,9 @@ namespace InterfazPokemon {
             InitializeComponent() ;
         }
 
-        private void Form1_Load(object sender, EventArgs e)  { cargar() ; } 
+        private void Form1_Load(object sender, EventArgs e)  { cargar() ; 
+        
+        Text =  "Pokemons" ; } 
 
         private void cargar(){
 
@@ -34,9 +36,10 @@ namespace InterfazPokemon {
 
             dgvPokemon.Columns["ImagenUrl"].Visible = false ; 
          
-            pictureBoxPokemon.Load(listaPokemon[0].ImagenUrl) ; 
+            cargarImagen(listaPokemon[0].ImagenUrl);
 
-            dgvPokemon.Columns["ImagenUrl"].Visible = false; }
+            
+            dgvPokemon.Columns["Id"].Visible = false ; }
 
             catch (Exception ex){ MessageBox.Show(ex.ToString()) ; } ;
 
@@ -51,25 +54,27 @@ namespace InterfazPokemon {
         private void dgvPokemon_SelectionChanged(object sender, EventArgs e){ // evento 
        
         
-        Pokemon seleccionado =  (Pokemon)dgvPokemon.CurrentRow.DataBoundItem ;   // trato cada fila de la grilla como un      }
+        Pokemon seleccionado =  (Pokemon)dgvPokemon.CurrentRow.DataBoundItem ;   // trato cada fila de la grilla como un      
    
         cargarImagen(seleccionado.ImagenUrl) ;
         
         }
         
         
-        private void cargarImagen(string imagen){
-
-        try {
-        
-            pictureBoxPokemon.Load(imagen) ; } catch {
-            
-            pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=") ;
-            
-            }
-        
-        
+private void cargarImagen(string imagen) {
+    try {
+        // Validamos primero de forma estricta si es nulo, vacío o espacios en blanco
+        if (string.IsNullOrWhiteSpace(imagen)) {
+            pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=");
+        } else {
+            pictureBoxPokemon.Load(imagen);
         }
+    } 
+    catch {
+        // Si la URL falla (ej. no tiene internet o la ruta de la web está rota), carga la de respaldo
+        pictureBoxPokemon.Load("https://media.istockphoto.com/id/2164022210/es/vector/tres-textos-de-estilo-no-c%C3%B3mics-mensaje-de-atenci%C3%B3n-vintage-p%C3%B3ster-retro-peligroso.jpg?s=612x612&w=0&k=20&c=tjHw_4fqBlJw1QyDmEeCohqrNQCfoblh23x_tPnE7d4=");
+    }}
+
 
         private void button1_Click(object sender, EventArgs e)
         {

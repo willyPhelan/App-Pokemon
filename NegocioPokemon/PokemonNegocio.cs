@@ -32,6 +32,43 @@ namespace NegocioPokemon {
         datos.cerrarConexion(); 
     } 
 }
+
+            public void eliminar(int id){
+
+            try {
+            
+            
+                AccesoDatos datos = new AccesoDatos() ;
+
+                datos.setearConsulta("DELETE from pokemons where id = @Id") ;
+                
+                datos.setearParametro("@id", id) ;
+
+                datos.ejecutarAccion() ;
+
+                
+            
+            
+            } catch (Exception e) { throw e ; } ;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void modificar(Pokemon poke){
         
             AccesoDatos datos = new AccesoDatos() ; // conexion 

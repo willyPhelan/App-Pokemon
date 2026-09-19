@@ -195,13 +195,34 @@ private void cargarImagen(string imagen) {
         }
     }
 
+        private void textBoxFiltro_TextChanged(object sender, EventArgs e) {
+
+        List <Pokemon> listaFiltrada ; 
+
+        string filtro =  textBoxFiltro.Text ; 
+
+        if(filtro != "") { listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()) ) ; 
+
+        } else {
+
+         listaFiltrada = listaPokemon ; 
+
+         }
+
+        dgvPokemon.DataSource = null ; // limpio 
+
+        dgvPokemon.DataSource = listaFiltrada ; // asigno 
+
+        ocultarColumnas() ;
+
+        }
 
 
-        
-        
-        
-            }  
-        } 
+       }
+    
+       }
+      
+         
         
         
         

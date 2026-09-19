@@ -8,6 +8,7 @@ using DominioPokemon ;
 using System.Security.AccessControl;
 using System.Security.Authentication.ExtendedProtection;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.SqlServer.Server;
 
 namespace NegocioPokemon {
     public class PokemonNegocio {
@@ -66,35 +67,9 @@ namespace NegocioPokemon {
 
             datos.ejecutarAccion() ;
             
-            } catch (Exception ex){ throw ex ;  }
+            } catch (Exception ex){ throw ex ;  } }
             
-           
-            } 
-
-
-
-
-
-
-
-
-
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 
@@ -204,7 +179,146 @@ namespace NegocioPokemon {
             
             throw ex ; }
                       
-        }  
+        }
+        
 
+        public List<Pokemon> filtrar(string campo, string criterio, string filtro) {
+    
+        List<Pokemon> lista = new List<Pokemon>() ;
+    
+        AccesoDatos datos = new AccesoDatos() ;
+    
+    try {
+        // 1. Quitamos la comilla doble sobrante del principio y dejamos los espacios listos para el WHERE
+
+        string consulta = "SELECT p.Numero, p.Nombre, p.Descripcion, p.ImagenUrl, t.NombreTipo AS Elemento, d.NombreTipo AS Debilidad, p.IdTIpo, p.IdDebilidad, p.Id FROM Pokemons p INNER JOIN Tipos t ON p.IdTipo = t.IdTipo INNER JOIN Tipos d ON p.IdDebilidad = d.IdTipo WHERE p.Activo = 1 AND ";
+        
+        if (campo == "Numero") {
+
+            switch (criterio) {
+
+                case "Mayor a":
+
+                    consulta += "p.Numero > " + filtro;
+
+                    break;
+
+                case "Menor a":
+
+                    consulta += "p.Numero < " + filtro;
+
+                    break;
+
+                default:
+
+                    consulta += "p.Numero = " + filtro;
+
+                    break;
+            }
+        } 
+
+        else if (campo == "Nombre") {
+
+            switch (criterio) {
+
+                case "Comienza con":
+
+                    consulta += "p.Nombre LIKE '" + filtro + "%'" ;
+
+                    break; 
+
+                case "Termina con":
+
+                    consulta += "p.Nombre LIKE '%" + filtro + "'";
+
+                    break;
+
+                default:
+
+                    consulta += "p.Nombre LIKE '%" + filtro + "%'";
+
+                    break;
+            }
+        } 
+
+        else { 
+
+            switch (criterio) {
+
+                case "Comienza con":
+
+                    consulta += "p.Descripcion LIKE '" + filtro + "%'";
+
+                    break;
+
+                case "Termina con":
+
+                    consulta += "p.Descripcion LIKE '%" + filtro + "'";
+
+                    break;
+
+                default:
+
+                    consulta += "p.Descripcion LIKE '%" + filtro + "%'";
+
+                    break;
+            }
+        }
+
+        datos.setearConsulta(consulta);
+
+        datos.ejecutarLectura();
+               
+        while (datos.Lector.Read()) {
+
+            Pokemon aux = new Pokemon();
+
+            aux.Id = (int)datos.Lector["Id"];
+
+            aux.Numero = datos.Lector.GetInt32(0);
+
+            aux.Nombre = (string)datos.Lector["Nombre"];
+
+            aux.Descripcion = (string)datos.Lector["Descripcion"];
+            
+            if (!(datos.Lector.IsDBNull(datos.Lector.GetOrdinal("ImagenUrl")))) {
+
+                aux.ImagenUrl = (string)datos.Lector["ImagenUrl"];
+
+            } else {
+
+                aux.ImagenUrl = "";
+            }
+
+            aux.Tipo = new Elemento();
+
+            aux.Tipo.Id = (int)datos.Lector["IdTipo"];
+
+            aux.Tipo.Descripcion = (string)datos.Lector["Elemento"];
+
+            aux.Debilidad = new Elemento();
+
+            aux.Debilidad.Descripcion = (string)datos.Lector["Debilidad"];
+
+            aux.Debilidad.Id = (int)datos.Lector["IdDebilidad"];
+
+            lista.Add(aux);
+        }
+
+        return lista;
+    } 
+
+    catch (Exception ex) {
+
+        throw ex;
     }
+
+    finally {
+
+        datos.cerrarConexion();
+    }
+}
+ 
+}
+
 }

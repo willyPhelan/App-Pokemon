@@ -20,9 +20,25 @@ namespace InterfazPokemon {
             InitializeComponent() ;
         }
 
-        private void Form1_Load(object sender, EventArgs e)  { cargar() ; 
+        private void Form1_Load(object sender, EventArgs e)  { 
         
-        Text =  "Pokemons" ; } 
+        cargar() ; 
+        
+        Text =  "Pokemons" ; 
+
+        comboBoxCampo.Items.Add("Numero") ;
+
+        comboBoxCampo.Items.Add("Nombre") ;
+
+        comboBoxCampo.Items.Add("Descripcion" +
+        "") ;
+        
+        
+        
+        } 
+
+
+
 
         private void cargar(){
 
@@ -45,19 +61,28 @@ namespace InterfazPokemon {
 
         }
 
+
+
+
         private void ocultarColumnas(){
 
         
 
          dgvPokemon.Columns["ImagenUrl"].Visible = false ; 
 
-           dgvPokemon.Columns["Id"].Visible = false  ;
-        } 
+     
+         dgvPokemon.Columns["Id"].Visible = false  ;
+       
+         } 
+
+
 
         private void pictureBoxPokemon_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         private void dgvPokemon_SelectionChanged(object sender, EventArgs e){ // evento 
        
@@ -132,31 +157,34 @@ private void cargarImagen(string imagen) {
 
         }
 
-        private void btnBuscar_Click_1(object sender, EventArgs e)
+       private void btnBuscar_Click_1(object sender, EventArgs e) {
+    
+        PokemonNegocio negocio = new PokemonNegocio();
 
-        {
+    try {
 
-        List <Pokemon> listaFiltrada ; 
+        // 1. Capturamos los valores seleccionados de manera segura dentro del try
 
-        string filtro = textBoxFiltro.Text ; 
+        string campo = comboBoxCampo.SelectedItem.ToString() ;
 
-        if(filtro != ""){
+        string criterio = comboBoxCriterio.SelectedItem.ToString() ;
 
-         listaFiltrada = listaPokemon.FindAll(x => x.Nombre.ToUpper().Contains(filtro.ToUpper()) || x.Tipo.Descripcion.ToUpper().Contains(filtro.ToUpper()) ); // valido permitiendo mayusc y minusc
+        string filtro = textBoxFiltroAvanzado.Text ;  
+
+        // 2. Ejecutamos el filtro y actualizamos la grilla dentro del mismo try
+
+        dgvPokemon.DataSource = negocio.filtrar(campo, criterio, filtro) ;
         
-         } else {
-
-         listaFiltrada = listaPokemon ; 
-
-         }
-
-        dgvPokemon.DataSource = null ; // limpio 
-
-        dgvPokemon.DataSource = listaFiltrada ; // asigno 
+        // 3. Ocultamos las columnas ID e ImagenUrl para que no se desordene la grilla
 
         ocultarColumnas() ;
+    } 
 
-        }
+        catch (Exception ex) { 
+
+            MessageBox.Show(ex.ToString()) ;  
+    }
+}
 
         private void btnEliminadoLogico_Click(object sender, EventArgs e)
 
@@ -165,6 +193,8 @@ private void cargarImagen(string imagen) {
         eliminar(true) ;
 
         }
+
+        
 
        private void eliminar(bool logico = false) { // toma falso por defecto // fn reutilizable de eliminacion Logica y fisica
     
@@ -217,8 +247,46 @@ private void cargarImagen(string imagen) {
 
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-       }
+        }
+
+        private void comboBoxCampo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string opcion = comboBoxCampo.SelectedItem.ToString() ; 
+
+            if(opcion == "Numero") {
+
+            comboBoxCriterio.Items.Clear() ; 
+
+            comboBoxCriterio.Items.Add("Mayor a") ; 
+
+             comboBoxCriterio.Items.Add("Menor a") ; 
+
+              comboBoxCriterio.Items.Add("Igual a") ; 
+
+
+            } else {
+            
+            comboBoxCriterio.Items.Clear() ; 
+            
+            comboBoxCriterio.Items.Add("Comienza con:") ; 
+
+             comboBoxCriterio.Items.Add("Termina con:") ; 
+
+              comboBoxCriterio.Items.Add("Contiene:") ; 
+            
+            
+            
+            }
+            ;       
+            
+            
+            
+            
+            }
+    }
     
        }
       

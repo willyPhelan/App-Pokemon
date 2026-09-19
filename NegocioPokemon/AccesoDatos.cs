@@ -40,6 +40,8 @@ namespace NegocioPokemon {
 
     lector = comando.ExecuteReader() ;  } catch (Exception ex) {
 
+    throw ex ;
+
     
     
     } }

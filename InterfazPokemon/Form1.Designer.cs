@@ -38,6 +38,12 @@ namespace InterfazPokemon
             this.textBoxFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnEliminadoLogico = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxCampo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBoxCriterio = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBoxFiltroAvanzado = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPokemon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPokemon)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +64,7 @@ namespace InterfazPokemon
             // 
             this.pictureBoxPokemon.Location = new System.Drawing.Point(535, 67);
             this.pictureBoxPokemon.Name = "pictureBoxPokemon";
-            this.pictureBoxPokemon.Size = new System.Drawing.Size(253, 271);
+            this.pictureBoxPokemon.Size = new System.Drawing.Size(291, 271);
             this.pictureBoxPokemon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPokemon.TabIndex = 1;
             this.pictureBoxPokemon.TabStop = false;
@@ -114,7 +120,7 @@ namespace InterfazPokemon
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(454, 41);
+            this.btnBuscar.Location = new System.Drawing.Point(647, 457);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 7;
@@ -132,11 +138,71 @@ namespace InterfazPokemon
             this.btnEliminadoLogico.UseVisualStyleBackColor = true;
             this.btnEliminadoLogico.Click += new System.EventHandler(this.btnEliminadoLogico_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(579, 370);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Campo:";
+            // 
+            // comboBoxCampo
+            // 
+            this.comboBoxCampo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCampo.FormattingEnabled = true;
+            this.comboBoxCampo.Location = new System.Drawing.Point(625, 367);
+            this.comboBoxCampo.Name = "comboBoxCampo";
+            this.comboBoxCampo.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCampo.TabIndex = 10;
+            this.comboBoxCampo.SelectedIndexChanged += new System.EventHandler(this.comboBoxCampo_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(545, 427);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "FiltroAvanzado";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // comboBoxCriterio
+            // 
+            this.comboBoxCriterio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCriterio.FormattingEnabled = true;
+            this.comboBoxCriterio.Location = new System.Drawing.Point(625, 394);
+            this.comboBoxCriterio.Name = "comboBoxCriterio";
+            this.comboBoxCriterio.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCriterio.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(579, 397);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Criterio: ";
+            // 
+            // textBoxFiltroAvanzado
+            // 
+            this.textBoxFiltroAvanzado.Location = new System.Drawing.Point(625, 424);
+            this.textBoxFiltroAvanzado.Name = "textBoxFiltroAvanzado";
+            this.textBoxFiltroAvanzado.Size = new System.Drawing.Size(121, 20);
+            this.textBoxFiltroAvanzado.TabIndex = 15;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 407);
+            this.ClientSize = new System.Drawing.Size(855, 513);
+            this.Controls.Add(this.textBoxFiltroAvanzado);
+            this.Controls.Add(this.comboBoxCriterio);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBoxCampo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnEliminadoLogico);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.textBoxFiltro);
@@ -167,6 +233,12 @@ namespace InterfazPokemon
         private TextBox textBoxFiltro;
         private Button btnBuscar;
         private Button btnEliminadoLogico;
+        private Label label1;
+        private ComboBox comboBoxCampo;
+        private Label label2;
+        private ComboBox comboBoxCriterio;
+        private Label label3;
+        private TextBox textBoxFiltroAvanzado;
     }
 }
 

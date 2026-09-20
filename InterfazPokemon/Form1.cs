@@ -163,6 +163,8 @@ private void cargarImagen(string imagen) {
 
     try {
 
+        if(validarFiltro()) return ; 
+
         // 1. Capturamos los valores seleccionados de manera segura dentro del try
 
         string campo = comboBoxCampo.SelectedItem.ToString() ;
@@ -224,6 +226,70 @@ private void cargarImagen(string imagen) {
             MessageBox.Show(ex.ToString());
         }
     }
+
+
+
+
+    private bool validarFiltro() {
+    
+        if(comboBoxCampo.SelectedIndex < 0) {
+
+            MessageBox.Show("Por favor, seleccione el campo a filtrar") ; 
+
+            return true ; 
+        }
+
+        if(comboBoxCriterio.SelectedIndex < 0){
+
+            MessageBox.Show("Por favor, seleccione el criterio para filtrar") ;
+
+            return true ; 
+        }
+
+        if(comboBoxCampo.SelectedItem.ToString() == "Numero"){
+
+        if(string.IsNullOrEmpty(textBoxFiltroAvanzado.Text)){
+
+        MessageBox.Show("Se deben cargar datos numericos") ; 
+
+        }
+
+        if(!soloNumeros(textBoxFiltroAvanzado.Text)){
+         
+        MessageBox.Show("Solo numeros para filtar por el campo numerico") ; 
+         
+         return true ; 
+
+         }
+
+        }
+
+        return false ;  
+        
+        } 
+
+
+
+
+        private bool soloNumeros(string cadena) { 
+        
+            foreach(char caracter in cadena){
+
+            if(!(char.IsNumber(caracter))) 
+            
+            return false ; 
+
+            }
+        
+        
+        return true ; } 
+
+
+
+
+
+
+
 
         private void textBoxFiltro_TextChanged(object sender, EventArgs e) {
 

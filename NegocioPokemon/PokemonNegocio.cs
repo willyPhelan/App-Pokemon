@@ -17,7 +17,7 @@ namespace NegocioPokemon {
     AccesoDatos datos = new AccesoDatos();
     try { 
         // Corregimos la cantidad de columnas, el orden y los parámetros
-        datos.setearConsulta("INSERT INTO Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) VALUES (" + po.Numero + ", @Nombre, @Descripcion, @ImagenUrl, @IdTipo, @IdDebilidad)");
+        datos.setearConsulta("INSERT INTO Pokemons (Numero, Nombre, Descripcion, ImagenUrl, IdTipo, IdDebilidad, Activo) VALUES (" + po.Numero + ", @Nombre, @Descripcion, @ImagenUrl, @IdTipo, @IdDebilidad, 1)");
      
         datos.setearParametro("@Nombre", po.Nombre);
         datos.setearParametro("@Descripcion", po.Descripcion);

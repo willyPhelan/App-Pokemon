@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO ;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DominioPokemon ; 
 using NegocioPokemon ; 
+using System.Configuration ; 
 
-namespace InterfazPokemon
-{
+namespace InterfazPokemon {
     public partial class frmAltaPokemon : Form {
 
     private Pokemon pokemon = null ;
 
+    private OpenFileDialog archivo = null ; 
+
     
-        public frmAltaPokemon()
-        {
-            InitializeComponent();
+        public frmAltaPokemon() {
+
+            InitializeComponent() ;
         }
 
           public frmAltaPokemon(Pokemon pokemon) {
@@ -31,8 +34,8 @@ namespace InterfazPokemon
             Text = "Modificar Pokemon" ;
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
+        private void btnCancelar_Click(object sender, EventArgs e) {
+
             this.Close() ;
         }
 
@@ -76,7 +79,11 @@ namespace InterfazPokemon
 
             negocio.agregar(pokemon) ;
       
-            MessageBox.Show("Modificado con exito") ; }
+            MessageBox.Show("Agregado con exito") ; }
+
+            // guardo imagen si la levanto localmente
+
+            if(archivo != null && !(textImagenUrl.Text.ToUpper().Contains("HTTP"))) File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName, true) ; // safeFileName => obtengo nombre del archivo
 
             Close()  ; }
             
@@ -155,9 +162,31 @@ namespace InterfazPokemon
         
         }
 
+        private void btnAgregarImg_Click(object sender, EventArgs e){ 
+
+        archivo = new OpenFileDialog() ;
+
+        archivo.Filter = "jpg|*.jpg; |png| *.png";
+
+        if(archivo.ShowDialog() == DialogResult.OK){
+
+        textImagenUrl.Text = archivo.FileName ; 
+
+        cargarImagen(archivo.FileName) ;
         
-    }
-        
+        // guardo la img
+
+   //    File.Copy(archivo.FileName, ConfigurationManager.AppSettings["images-folder"] + archivo.SafeFileName, true); // safeFileName => obtengo nombre del archivo
+
+
+                  }
+       
+
+               }
+  
+            }
+   
+    
         }
 
         
